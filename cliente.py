@@ -1,7 +1,7 @@
 # cliente.py
 
 import socket
-import cifrado
+import functions as cifrado
 
 def main():
   # Configura el cliente

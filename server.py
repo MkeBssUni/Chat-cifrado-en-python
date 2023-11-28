@@ -2,7 +2,7 @@
 
 import socket
 import threading
-import cifrado
+import functions as cifrado
 
 def handle_client(client_socket, address):
   while True:
