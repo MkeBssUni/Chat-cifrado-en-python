@@ -8,6 +8,9 @@ def cifrar(message, key):
     alfabeto = "abcdefghijklmnopqrstuvwxyz"
     alfabeto_cifrado = alfabeto[key:] + alfabeto[:key]
     cifrado = ""
+    normal = ""
+    texto_cifrado = ""
+    texto_normal = ""
     for caracter in message:
         if caracter.isalpha():
             indice = alfabeto.find(caracter)
