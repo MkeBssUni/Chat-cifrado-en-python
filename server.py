@@ -1,7 +1,8 @@
 # server.py
-from functions import cifrar
+
 import socket
 import threading
+import cifrado
 
 def handle_client(client_socket, address):
   while True:
@@ -11,10 +12,16 @@ def handle_client(client_socket, address):
       break
 
     # Cifra el mensaje
-    ciphertext = cifrar(data, 3)
+    ciphertext = cifrado.cifrar(data, 3)
 
     # Imprime el mensaje cifrado
     print(f"Mensaje de {address[0]}:{address[1]}: {ciphertext}")
+
+    # Descifra el mensaje cifrado
+    plaintext = cifrado.descifrar(ciphertext, 3)
+
+    # Imprime el mensaje descifrado
+    print(f"Mensaje descifrado: {plaintext}")
 
   client_socket.close()
 
@@ -41,4 +48,3 @@ def main():
 
 if __name__ == "__main__":
   main()
-

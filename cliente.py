@@ -1,10 +1,11 @@
 # cliente.py
-from functions import cifrar
+
 import socket
+import cifrado
 
 def main():
   # Configura el cliente
-  host = '192.168.100.109'
+  host = '127.0.0.1'
   port = 5555
 
   # Crea un socket
@@ -21,10 +22,10 @@ def main():
     message = input("Yo: ")
 
     # Cifra el mensaje
-    ciphertext = cifrar(message, int(key))
+    ciphertext = cifrado.cifrar(message, int(key))
 
     # Envía el mensaje cifrado al servidor
     client.send(ciphertext.encode('utf-8'))
 
-if __name__ == "__main__":
-  main()
+  if __name__ == "__main__":
+    main()
