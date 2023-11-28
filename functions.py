@@ -15,17 +15,9 @@ def cifrar(message, key):
   return ciphertext
 
 def descifrar(ciphertext, key):
-  """Descifra un mensaje usando el método Cesar.
+  # descifra un mensaje usando el método Cesar y una clave de cifrado
+    plaintext = ""
+    for char in ciphertext:
+      plaintext += chr((ord(char) - key) % 256)
+    return plaintext
 
-  Args:
-    ciphertext: El mensaje cifrado.
-    key: La clave de cifrado.
-
-  Returns:
-    El mensaje descifrado.
-  """
-
-  plaintext = ""
-  for char in ciphertext:
-    plaintext += chr((ord(char) - key) % 256)
-  return plaintext
