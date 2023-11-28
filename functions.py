@@ -36,12 +36,11 @@ def cifrar(message, key):
 def descifrar(ciphertext, key):
   alfabeto = "abcdefghijklmnopqrstuvwxyz"
   alfabeto_cifrado = alfabeto[key:] + alfabeto[:key]
-  alfabeto_descifrado = alfabeto[::-1]
 
   plaintext = ""
   for char in ciphertext:
     position = alfabeto_cifrado.find(char)
-    plaintext += alfabeto_descifrado[position]
+    plaintext += alfabeto[position]
 
   return plaintext
 
