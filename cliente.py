@@ -4,7 +4,7 @@ import socket
 
 def main():
   # Configura el cliente
-  host = '127.0.0.1'
+  host = '192.168.100.109'
   port = 5555
 
   # Crea un socket
