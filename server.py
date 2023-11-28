@@ -8,17 +8,19 @@ def handle_client(client_socket, address):
   while True:
     # Espera a recibir datos del cliente
     data = client_socket.recv(1024).decode('utf-8')
+    # recibe la clave de cifrado
+    key = int(data)
     if not data:
       break
 
     # Cifra el mensaje
-    ciphertext = cifrado.cifrar(data, 3)
+    ciphertext = cifrado.cifrar(data, int(key))
 
     # Imprime el mensaje cifrado
     print(f"Mensaje de {address[0]}:{address[1]}: {ciphertext}")
 
     # Descifra el mensaje cifrado
-    plaintext = cifrado.descifrar(ciphertext, 3)
+    plaintext = cifrado.descifrar(ciphertext, int(key))
 
     # Imprime el mensaje descifrado
     print(f"Mensaje descifrado: {plaintext}")
