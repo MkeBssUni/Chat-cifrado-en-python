@@ -1,46 +1,18 @@
-""" def cifrar(message, key):
-  ciphertext = ""
-  for char in message:
-    ciphertext += chr((ord(char) + key) % 256)
-  return ciphertext """
-
-def cifrar(message, key):
-    alfabeto = "abcdefghijklmnopqrstuvwxyz"
-    alfabeto_cifrado = alfabeto[key:] + alfabeto[:key]
+def cifrar_mensaje(mensaje, clave):
     cifrado = ""
-    normal = ""
-    texto_cifrado = ""
-    texto_normal = ""
-    for caracter in message:
-        if caracter.isalpha():
-            indice = alfabeto.find(caracter)
-            if indice != -1:
-                normal += caracter
-                caracter_cifrado = alfabeto_cifrado[indice]
-                cifrado += caracter_cifrado
+    for char in mensaje:
+        if char.isalpha():
+            cifrado += chr((ord(char) - 65 + clave) % 26 + 65) if char.isupper() else chr((ord(char) - 97 + clave) % 26 + 97)
         else:
-            texto_normal += caracter
-            texto_cifrado += caracter
+            cifrado += char
     return cifrado
-       
 
 
-
-""" def descifrar(ciphertext, key):
-    plaintext = ""
-    for char in ciphertext:
-        plaintext += chr((ord(char) - key) % 256)
-    return plaintext
- """
-
-def descifrar(ciphertext, key):
-  alfabeto = "abcdefghijklmnopqrstuvwxyz"
-  alfabeto_cifrado = alfabeto[key:] + alfabeto[:key]
-
-  plaintext = ""
-  for char in ciphertext:
-    position = alfabeto_cifrado.find(char)
-    plaintext += alfabeto[position]
-
-  return plaintext
-
+def descifrar_mensaje(mensaje, clave):
+  descifrado = ""
+  for char in mensaje:
+    if char.isalpha():
+      descifrado += chr((ord(char) - 65 - clave) % 26 + 65) if char.isupper() else chr((ord(char) - 97 - clave) % 26 + 97)
+    else:
+      descifrado += char
+  return descifrado
